@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>GranollDates</title>
+    <link rel="stylesheet" href="Style.css">
+  </head>
+
+  <body>
+    <br>
+    <div class="box">
+      <br> <h1 class="title">GranollDates</h1>
+      <hr class="horizontal-line">
+      <div class="information">
+        <br> <h1 class="inside-title">Easter Date Calculator</h1>
+        <br> <div class="date-calculator">
+          <fieldset class="calculator-border">
+            <legend class="legend-title">Easter Calculator</legend>
+
+            <br> <p><b><u>Enter A Year To Find The Day & Month Easter Falls On</u></b></p>
+            <form action="cgi-bin/easter_calculator.py" method="post">
+              <div class="txt-field">
+                <input type="number" name="year-input" required>
+                <span></span>
+                <label>Year</label>
+              </div>
+
+              <div class="radio">
+                <input class="radio-input" type="radio" name="all-Radio-option" value="Numerical" id="myradio1">
+                <label class="radio-label" for="myradio1">Numerical Date</label>
+                <input class="radio-input" type="radio" name="all-Radio-option" value="Full" id="myradio2">
+                <label class="radio-label" for="myradio2">Full Date</label>
+                <input class="radio-input" type="radio" name="all-Radio-option" value="Both" id="myradio3">
+                <label class="radio-label" for="myradio3">Both Options</label>
+              </div>
+  
+              <br> <br> <br>
+  
+              <div class="submit-button">
+                <nav>
+                  <form action="cgi-bin/easter_calculator.py">
+                    <button class="button">Submit</button>
+                  </form>
+                </nav>
+              </div>
+  
+              <br> <br> <br>
+
+            </form>
+            <br>
+          </fieldset>
+        </div>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        <hr class="horizontal-line">
+        <div class="footer1">&copy; GranollDates</div> 
+        <div class="footer2">Created By Joshua Noble</div>
+      </div>
+    </div>
+
+  </body>
+</html>
