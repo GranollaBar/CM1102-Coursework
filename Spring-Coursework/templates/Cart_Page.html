@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Larry's Lawnmowers - Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/Cart-Style.css') }}">
+  </head>
+  <body>
+    <div class="mainBox">
+        <div class="mainHeaderBox">
+            <div class="mainHeaderValue">
+                <div class="headerElement">
+                    <a href="main">
+                        <button class="backButton"><img style="vertical-align:middle" src="{{ url_for('static', filename='images/other-images/back-button.png') }}"></button>
+                    </a>
+                    <button class="">
+                </div>
+                <div class="headerElement">
+                    <img style="vertical-align:middle" src="{{ url_for('static', filename='images/logo/Larrys_Lawnmowers_Main_Logo.png') }}" alt="Larry's Lawnmower Logo">
+                </div>
+            </div>
+        </div>
+        <div class="mainContentBox" id="mainContentBox">
+            <div class="mainContentValue">
+                <form action="allProductsQuery" method="post">
+                    {% block content %}
+                        {% for details in finalAllDetails %}
+                            <div class="finalProduct">
+                                <button disabled class="contentButtons">
+                                    <div class="contentElement">
+                                        <div class="contentImage">
+                                            <img class="productImage" style="vertical-align:middle" src="{{ url_for('static', filename=details[2]) }}" alt="Product Image 1">
+                                            <div class="verticalLine"></div>
+                                        </div>
+                                        <div class="contentHeader">
+                                            <h4><u>{{details[1]}}</u></h4>
+                                            <div class="horizontalProductLine"></div>
+                                        </div>
+                                        <div class="contentPrice">
+                                            <p><b>£{{details[3]}}</b></p>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <button class="allButtons" type="submit" name="ProductQuery" value={{details[6]}}><img style="vertical-align:middle" src="{{ url_for('static', filename='images/other-images/cross_real.png') }}"></button>
+                        {% endfor %}
+                        <div class="headingmoment">
+                            <h3>V All Item Details Listed Below V</h3>
+                        </div>
+                        <div class="allTable">
+                            <table bgcolor="black" width="500" height="60">
+                                <tr bgcolor="grey">
+                                    <th>Item ID</th>
+                                    <th>Item Title</th>
+                                    <th>Item Price</th>
+                                    <th>Item Quantity</th>
+                                    <th>Item Final Price</th>
+                                </tr>
+                                {% for tableDetails in finalAllDetails %}
+                                    <tr bgcolor="white" align="center" height="50">
+                                        <td>{{tableDetails[0]}}</td>
+                                        <td>{{tableDetails[1]}}</td>
+                                        <td>£{{tableDetails[3]}}</td>
+                                        <td>{{tableDetails[4]}}</td>
+                                        <td>£{{tableDetails[5]}}</td>
+                                    </tr>
+                                {% endfor %}
+                                <tr bgcolor="white" align="center" height="50">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td id="finalPrice">£{{finalallprice}}</td>
+                                </tr>
+                        </div>
+                    {% endblock %}
+                    <button class="removeItems" type="submit" name="ProductQuery" value="10">Remove all Items</button>
+                    <button class="confirmPayment" type="submit" name="ProductQuery" value="11">Confirm Payment Method</button>
+                </form>
+            </div>
+        </div>
+        <div class="footerBox">
+            <div class="cartFooterBox">
+                <div class="footer">
+                    <div class="footer-content">
+                        <div class="footer-top">
+                            <img class="thomasLogo" style="vertical-align:middle" src="{{ url_for('static', filename='images/peer-artwork/thomas_website_logo.png') }}" alt="Thomas Logo">
+                            <img class="joelLogo" style="vertical-align:middle" src="{{ url_for('static', filename='images/peer-artwork/joel_website_logo.png') }}" alt="Joel Logo">
+                        </div>
+                        <div class="footer-bottom">
+                            &copy; Larry's Lawnmowers ¦ Created By Joshua Noble
+                        </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  </body>

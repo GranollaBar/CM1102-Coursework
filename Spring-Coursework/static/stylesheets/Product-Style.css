@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+    background: url('../images/background-images/product_overview_mower_blurry.png');
+    background-position: top;
+    overflow-x: hidden;
+}
+
+.mainBox{
+    display: flex;
+    justify-content: center;
+}
+
+.mainHeaderBox{
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    background: rgb(188, 242, 188);
+    font-family: 'Josefin Sans', sans-serif;
+    align-items: center;
+    border: 3px solid #fff;
+    backdrop-filter: blur(20px);
+}
+
+.headerElement{
+    position: relative;
+    margin: 5px 108px;
+    display: inline-block;
+}
+
+.backButton{
+    border: 5px solid  rgb(188, 242, 188);
+    border-radius: 100px;
+    outline: none;
+    cursor: pointer;
+}
+
+.shoppingCart{
+    padding-left: 7px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mainProductBox{
+    margin-top: 230px;
+    width: 60%;
+    height: 1300px;
+    background: transparent;
+    border: 3px solid #fff;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 0px 20px 15px black;
+    font-family: 'Cabin', sans-serif;
+}
+
+.titleBox{
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 80px;
+}
+
+.imageBox{
+    display: flex;
+    justify-content: center;
+}
+
+.descriptionBox{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 70px 0 0 140px;
+}
+
+.environmentBox{
+    display: flex;
+    justify-content: center;
+    margin: 70px 0;
+}
+
+.priceBox{
+    display: flex;
+    justify-content: center;
+    margin: 70px 0;
+}
+
+#ProductText{
+    color: lightcyan;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#ProductImage{
+    border: 3px solid #fff;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background: rgba(125, 129, 130, 0.5);
+    padding: 20px 100px;
+}
+
+#ProductDescription{
+    border: 3px solid #fff;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background: rgba(125, 129, 130, 0.5);
+    color: yellow;
+    padding: 20px 20px;
+}
+
+#ProductEnvironment{
+    border: 3px solid #fff;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    color: rgb(93, 179, 255);
+    background: rgba(125, 129, 130, 0.5);
+    text-decoration: underline;
+    padding: 20px 20px;
+}
+
+#ProductPrice{
+    border: 3px solid #fff;
+    border-radius: 2px;
+    backdrop-filter: blur(10px);
+    background: rgba(125, 129, 130, 0.5);
+    font-weight: bold;
+    padding: 35px 35px;
+}
+
+.contentButtons{
+    display: flex;
+    justify-content: center;
+    margin: 90px 0;
+}
+
+.buyNowButton{
+    position: relative;
+    height: 45px;
+    border-radius: 100px;
+    background: white;
+    border: 3px solid rgb(107, 173, 151);
+    outline: none;
+    cursor: pointer;
+    font-size: 1.3em;
+    font-weight: 600;
+    right: 30px;
+    width: 400px;
+}
+
+.addBasketButton{
+    position: relative;
+    height: 45px;
+    border-radius: 100px;
+    background: white;
+    border: 3px solid rgb(107, 173, 151);
+    outline: none;
+    cursor: pointer;
+    font-size: 1.3em;
+    font-weight: 600;
+    left: 30px;
+    width: 400px;
+}
+
+.productFooterBox{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: 1750px;
+    width: 100%;
+    height: 200px;
+    background-color: blue;
+}
+
+.footer .footer-bottom {
+    background-color: navy;
+    color: grey;
+    height: 27px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-top: 5px;
+    width: 100%;
+}
+
+.thomasLogo{
+    position: absolute;
+    left: 280px;
+    margin-top: 36px;
+}
+
+.joelLogo{
+    position: absolute;
+    left: 900px;
+    margin-top: 36px;
+}

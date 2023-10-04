@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Larry's Lawnmowers - Payment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/Payment-Style.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="paymentAlertBox">
+        <div class="alertFormValue">
+            {% block content %}
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for msg in messages %}
+                            <div class="message">
+                                <h3 class="messagetext">! {{msg}} !</h3>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            {% endblock %}
+        </div>
+    </div>
+    <form action="payment" method="post">
+        <div class="container">
+            <h1 class="heading">Confirm Your Payment</h1>
+            <div class="first-row">
+                <div class="owner">
+                    <h3>Name on Card</h3>
+                    <div class="input-field">
+                        <input placeholder="Enter the string name shown on your credit/debit card" type="text" name="nameField" maxlength="30" required>
+                    </div>
+                </div>
+                <div class="cvv">
+                    <h3>CVV</h3>
+                    <div class="input-field">
+                        <input type="password" placeholder="Enter 3/4 digit number on card back" name="cvvField" minlength="3" maxlength="4" required>
+                    </div>
+                </div>
+            </div>
+            <div class="second-row">
+                <div class="card-number">
+                    <h3>Card Number</h3>
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter the 16 digit card number shown on the front of the card (spaces and dashes are permitted)" name="cardField" minlength="16" maxlength="19" required>
+                    </div>
+                </div>
+            </div>
+            <div class="third-row">
+                <h3>Expiration Date</h3>
+                <div class="selection">
+                    <div class="date">
+                        <select name="months" id="months">
+                            <option value="Jan">Jan</option>
+                            <option value="Feb">Feb</option>
+                            <option value="Mar">Mar</option>
+                            <option value="Apr">Apr</option>
+                            <option value="May">May</option>
+                            <option value="Jun">Jun</option>
+                            <option value="Jul">Jul</option>
+                            <option value="Aug">Aug</option>
+                            <option value="Sep">Sep</option>
+                            <option value="Oct">Oct</option>
+                            <option value="Nov">Nov</option>
+                            <option value="Dec">Dec</option>
+                        </select>
+                        <select name="years" id="years">
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2015">2014</option>
+                            <option value="2015">2013</option>
+                            <option value="2015">2012</option>
+                            <option value="2015">2011</option>
+                            <option value="2015">2010</option>
+                            <option value="2015">2009</option>
+                            <option value="2015">2008</option>
+                            <option value="2015">2007</option>
+                            <option value="2015">2006</option>
+                            <option value="2015">2005</option>
+                            <option value="2015">2004</option>
+                            <option value="2015">2003</option>
+                            <option value="2015">2002</option>
+                            <option value="2015">2001</option>
+                            <option value="2015">2000</option>
+                        </select>
+                    </div>
+                    <div class="cards">
+                        <img src="{{ url_for('static', filename='images/other-images/paypal.png') }}" alt="paypal">
+                        <img src="{{ url_for('static', filename='images/other-images/mastercard.png') }}" alt="mastercard">
+                        <img src="{{ url_for('static', filename='images/other-images/visacard.png') }}" alt="visa">
+                    </div>
+                </div>    
+            </div>
+            <button class="confirmPayment" type="submit" name="confirmfinalpayment" value={{finalvalue}}>Confirm £{{finalprice}} Payment</button>
+        </div>
+    </form>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

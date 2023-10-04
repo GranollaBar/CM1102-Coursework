@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Larry's Lawnmowers - Payment Successful</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/Payment-Successful-Style.css') }}">
+</head>
+<body>
+    <form action="paymentconfirmed" method="post">
+        <div class="container">
+            <button type="submit" class="btn">Submit</button>
+            <div class="popup">
+                <img src="{{ url_for('static', filename='images/other-images/tick.png') }}"/>
+                <h2>Love to Larry</h2>
+                <p>Hope you enjoyed going through Larrys website</p>
+                <p>Product(s) {{finalvalue}} were successfully purchased</p>
+                <button type="submit" name="done">I had Fun!</button>
+            </div>
+        </div>
+    </form>
+</body>

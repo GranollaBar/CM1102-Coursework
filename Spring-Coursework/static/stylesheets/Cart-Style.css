@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+    background: url('../images/background-images/shopping_cart_mower_blurry.png');
+    background-position: top;
+    overflow-x: hidden;
+}
+
+.mainBox{
+    display: flex;
+    justify-content: center;
+}
+
+.mainHeaderBox{
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    background: rgb(188, 242, 188);
+    font-family: 'Josefin Sans', sans-serif;
+    align-items: center;
+    border: 3px solid #fff;
+    backdrop-filter: blur(20px);
+}
+
+.headerElement{
+    position: relative;
+    margin: 5px 220px;
+    display: inline-block;
+}
+
+.backButton{
+    border: 5px solid  rgb(188, 242, 188);
+    border-radius: 100px;
+    outline: none;
+    cursor: pointer;
+}
+
+.mainContentBox{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    height: 4200px;
+    background: transparent;
+    position: relative;
+    border-radius: 20px;
+    margin: 50px 0;
+    top: 200px;
+    border: 3px solid #fff;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 0px 25px 20px black;
+ }
+
+ .contentButtons{
+    position: relative;
+    background: transparent;
+    border-radius: 20px;
+    margin: 50px 0;
+    cursor: pointer;
+    left: 0;
+    cursor: auto;
+ }
+
+ .contentElement{
+    background-color: transparent;
+    border: 3px solid #fff;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 10px 10px 10px black;
+    width: 800px;
+    height: 150px;
+    font-family: 'Cabin', sans-serif;    
+}
+
+.contentImage{
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.verticalLine{
+    height: 150px;
+    border-right: 5px solid #fff;
+    padding: 0 15px;
+}
+
+.contentHeader{
+    position: relative;
+    bottom: 140px;
+    left: 180px;
+    width: 75%;
+    color: lightcyan;
+    padding: 7px 7px;
+    font-size: 1.2em;
+}
+
+.horizontalProductLine{
+    position: relative;
+    top: 40px;
+    right: 14px;
+    width: 627px;
+    border-bottom: 5px solid #fff;
+}
+
+.contentPrice{
+    position: relative;
+    bottom: 80px;
+    left: 250px;
+    color: lightgreen;
+    width: 56%;  
+    font-size: 1.2em;
+}
+
+.cartFooterBox{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: 1160px;
+    width: 1550px;
+    height: 200px;
+    background-color: blue;
+}
+
+.footer .footer-bottom {
+    background-color: navy;
+    color: grey;
+    height: 27px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-top: 5px;
+    width: 100%;
+}
+
+.footerBox{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    background: transparent;
+    position: absolute;
+    top: 3200px;
+}
+
+.headingmoment{
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 15px 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 20px;
+    border: 2px solid white;
+}
+
+.allTable{
+    font-family: 'Cabin', sans-serif;  
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+th{
+    padding: 10px 60px;
+    color: black;
+}
+
+#finalPrice{
+    color: red;
+}
+
+.allButtons{
+    padding: 5px 5px;
+    background: rgba(0, 0, 0, 1);
+    border: 3px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.removeItems{
+    position: absolute;
+    bottom: 150px;
+    height: 55px;
+    border-radius: 100px;
+    background: rgba(255, 0, 0, 0.477);
+    border: 3px solid rgba(255, 4, 4, 1);
+    outline: none;
+    cursor: pointer;
+    font-size: 1.3em;
+    font-weight: 600;
+    width: 400px;
+}
+
+.confirmPayment{
+    position: absolute;
+    bottom: 50px;
+    height: 55px;
+    border-radius: 100px;
+    background: rgba(72, 255, 0, 0.477);
+    border: 3px solid rgb(63, 255, 4);
+    outline: none;
+    cursor: pointer;
+    font-size: 1.3em;
+    font-weight: 600;
+    width: 400px;
+}
+
+.thomasLogo{
+    position: absolute;
+    left: 280px;
+    margin-top: 36px;
+}
+
+.joelLogo{
+    position: absolute;
+    left: 900px;
+    margin-top: 36px;
+}

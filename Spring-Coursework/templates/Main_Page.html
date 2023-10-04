@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Larry's Lawnmowers - Main</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/Main-Style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='javascript/main-javascript.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    
+  </head>
+  <body>
+    <div class="loginAlertBox">
+        <div class="alertFormValue">
+            {% block content %}
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for msg in messages %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <span>{{ msg }}</span>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="mainBox">
+        <div class="mainHeaderBox">
+            <div class="mainHeaderValue">
+                <div class="headerElement">
+                    <a href="logout" id="logoutButton">
+                        <button class="headingText">Welcome Back, <strong>{{finalFirstname}} {{finalSurname}}</strong></button>
+                    </a>
+                </div>
+                <div class="headerElement">
+                    <img style="vertical-align:middle" src="{{ url_for('static', filename='images/logo/Larrys_Lawnmowers_Main_Logo.png') }}" alt="Larry's Lawnmower Logo">
+                </div>
+                <div class="headerElement">
+                    <div class="image-text">
+                        <a href="shoppingCart">
+                            <button class="shoppingCart"><img style="vertical-align:middle" src="{{ url_for('static', filename=finalCartImage) }}" alt="Shopping Cart Icon"></button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mainSearchBox">
+            <div class="mainSearchValue">
+                <div class="searchElement">
+                    <div class="searchBarPosition">
+                        <form action="" class="searchBar">
+                            <input type="text" placeholder="Search" name="" id="search-item" onkeyup="search()">
+                            <button class="searchbutton" type="submit"><img src="{{ url_for('static', filename='images/other-images/search_bar_real.png') }}"></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="filterButtons">
+                    <div class="typeButtonBox">
+                        <button class="allSortButtons" onclick="TypeSort()">Type</button>
+                    </div>
+                    <div class="LtoHButtonBox">
+                        <button class="allSortButtons" onclick="LToHSort()">Low To High</button>
+                    </div>
+                    <div class="originalButtonBox">
+                        <button class="allSortButtons" onclick="OriginalSort()">Original</button>
+                    </div>
+                    <div class="HtoLButtonBox">
+                        <button class="allSortButtons" onclick="HToLSort()">High To Low</button>
+                    </div>
+                    <div class="environmentButtonBox">
+                        <button class="allSortButtons" onclick="EnvironmentSort()">CO2 Emissions (L to H)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mainContentBox" id="mainContentBox">
+            <div class="mainContentValue">
+                <form action="productSelected" method="post">
+                    <div class="finalProduct" id="firstProduct">
+                        <button class="contentButtons" type="submit" name="products" value="1">
+                            <div class="contentElement">
+                                <div class="contentImage">
+                                    <img class="productImage1" style="vertical-align:middle" src="{{ url_for('static', filename=finalproduct1.image) }}" alt="Product Image 1">
+                                    <div class="verticalLine1"></div>
+                                </div>
+                                <div class="contentHeader1">
+                                    <h6 class="title"><u>Item-Name: {{finalproduct1.title}}</u></h6>
+                                    <div class="horizontalProduct1Line1"></div>
+                                </div>
+                                <div class="contentDescription1">
+                                    <p class="environment"><b>Environmental Impact: </b>{{finalproduct1.environment}}</p>
+                                        <div class="horizontalProduct1Line2"></div>
+                                </div>
+                                <div class="contentPrice1">
+                                    <p class="price"><b>{{finalproduct1.price}}</b></p>
+                                </div>
+                            </div>
+                        </button>
+                    <button class="addToBasket1" id="firstButton" type="submit" name="products" value="10"><img style="vertical-align:middle" src="{{ url_for('static', filename='images/other-images/add_to_basket_cart.png') }}"></button>
+                    </div>
+                    <div class="finalProduct" id="secondProduct">
+                        <button class="contentButtons" type="submit" name="products" value="2">
+                            <div class="contentElement">
+                                <div class="contentImage">
+                                    <img class="productImage2" style="vertical-align:middle" src="{{ url_for('static', filename=finalproduct2.image) }}" alt="Product Image 2">
+                                    <div class="verticalLine2"></div>
+                                </div>
+                                <div class="contentHeader2">
+                                    <h6 class="title"><u>Item-Name: {{finalproduct2.title}}</u></h6>
+                                    <div class="horizontalProduct2Line1"></div>
+                                </div>
+                                <div class="contentDescription2">
+                                    <p class="environment"><b>Environmental Impact: </b>{{finalproduct2.environment}}</p>
+                                        <div class="horizontalProduct2Line2"></div>
+                                </div>
+                                <div class="contentPrice2">
+                                    <p class="price"><b>{{finalproduct2.price}}</b></p>
+                                </div>
+                            </div>
+                        </button>
+                    <button class="addToBasket2" id="secondButton" type="submit" name="products" value="11"><img style="vertical-align:middle" src="{{ url_for('static', filename='images/other-images/add_to_basket_cart.png') }}"></button>
+                    </div>
+                    <div class="finalProduct" id="thirdProduct">
+                        <button class="contentButtons" type="submit" name="products" value="3">
+                            <div class="contentElement">
+                                <div class="contentImage">
+                                    <img class="productImage3" style="vertical-align:middle" src="{{ url_for('static', filename=finalproduct3.image) }}" alt="Product Image 3">
+                                    <div class="verticalLine3"></div>
+                                </div>
+                                <div class="contentHeader3">
+                                    <h6 class="title"><u>Item-Name: {{finalproduct3.title}}</u></h6>
+                                    <div class="horizontalProduct3Line1"></div>
+                                </div>
+                                <div class="contentDescription3">
+                                    <p class="environment"><b>Environmental Impact: </b>{{finalproduct3.environment}}</p>
+                                        <div class="horizontalProduct3Line2"></div>
+                                </div>
+                                <div class="contentPrice3">
+                                    <p class="price"><b>{{finalproduct3.price}}</b></p>
+                                </div>
+                            </div>
+                        </button>
+                    <button class="addToBasket3" id="thirdButton" type="submit" name="products" value="12"><img style="vertical-align:middle" src="{{ url_for('static', filename='images/other-images/add_to_basket_cart.png') }}"></button>
+                    </div>
+                    <div class="finalProduct" id="fourthProduct">
+                        <button class="contentButtons" type="submit" name="products" value="4">
+                            <div class="contentElement">
+                                <div class="contentImage">
+                                    <img class="productImage4" style="vertical-align:middle" src="{{ url_for('static', filename=finalproduct4.image) }}" alt="Product Image 4">
+                                    <div class="verticalLine4"></div>
+                                </div>
+                                <div class="contentHeader4">
+                                    <h6 class="title"><u>Item-Name: {{finalproduct4.title}}</u></h6>
+                                    <div class="horizontalProduct4Line1"></div>
+                                </div>
+                                <div class="contentDescription4">
+                                    <p class="environment"><b>Environmental Impact: </b>{{finalproduct4.environment}}</p>
+                                        <div class="horizontalProduct4Line2"></div>
+                                </div>
+                                <div class="contentPrice4">
+                                    <p class="price"><b>{{finalproduct4.price}}</b></p>
+                                </div>
+                            </div>
+                        </button>
+                    <button class="addToBasket4" id="fourthButton" type="submit" name="products" value="13"><img style="vertical-align:middle" src="{{ url_for('static', filename='images/other-images/add_to_basket_cart.png') }}"></button>
+                    </div>
+                    <div class="finalProduct" id="fifthProduct">
+                        <button class="contentButtons" type="submit" name="products" value="5">
+                            <div class="contentElement">
+                                <div class="contentImage">
+                                    <img class="productImage5" style="vertical-align:middle" src="{{ url_for('static', filename=finalproduct5.image) }}" alt="Product Image 5">
+                                    <div class="verticalLine5"></div>
+                                </div>
+                                <div class="contentHeader5">
+                                    <h6 class="title"><u>Item-Name: {{finalproduct5.title}}</u></h6>
+                                    <div class="horizontalProduct5Line1"></div>
+                                </div>
+                                <div class="contentDescription5">
+                                    <p class="environment"><b>Environmental Impact: </b>{{finalproduct5.environment}}</p>
+                                        <div class="horizontalProduct5Line2"></div>
+                                </div>
+                                <div class="contentPrice5">
+                                    <p class="price"><b>{{finalproduct5.price}}</b></p>
+                                </div>
+                            </div>
+                        </button>
+                    <button class="addToBasket5" id="fifthButton" type="submit" name="products" value="14"><img style="vertical-align:middle" src="{{ url_for('static', filename='images/other-images/add_to_basket_cart.png') }}"></button>
+                    </div>
+                    <div class="finalProduct" id="sixthProduct">
+                        <button class="contentButtons" type="submit" name="products" value="6">
+                            <div class="contentElement">
+                                <div class="contentImage">
+                                    <img class="productImage6" style="vertical-align:middle" src="{{ url_for('static', filename=finalproduct6.image) }}" alt="Product Image 6">
+                                    <div class="verticalLine6"></div>
+                                </div>
+                                <div class="contentHeader6">
+                                    <h6 class="title"><u>Item-Name: {{finalproduct6.title}}</u></h6>
+                                    <div class="horizontalProduct6Line1"></div>
+                                </div>
+                                <div class="contentDescription6">
+                                    <p class="environment"><b>Environmental Impact: </b>{{finalproduct6.environment}}</p>
+                                        <div class="horizontalProduct6Line2"></div>
+                                </div>
+                                <div class="contentPrice6">
+                                    <p class="price"><b>{{finalproduct6.price}}</b></p>
+                                </div>
+                            </div>
+                        </button>
+                    <button class="addToBasket6" id="sixthButton" type="submit" name="products" value="15"><img style="vertical-align:middle" src="{{ url_for('static', filename='images/other-images/add_to_basket_cart.png') }}"></button>
+                    </div>
+                    <div class="finalProduct" id="seventhProduct">
+                        <button class="contentButtons" type="submit" name="products" value="7">
+                            <div class="contentElement">
+                                <div class="contentImage">
+                                    <img class="productImage7" style="vertical-align:middle" src="{{ url_for('static', filename=finalproduct7.image) }}" alt="Product Image 7">
+                                    <div class="verticalLine7"></div>
+                                </div>
+                                <div class="contentHeader7">
+                                    <h6 class="title"><u>Item-Name: {{finalproduct7.title}}</u></h6>
+                                    <div class="horizontalProduct7Line1"></div>
+                                </div>
+                                <div class="contentDescription7">
+                                    <p class="environment"><b>Environmental Impact: </b>{{finalproduct7.environment}}</p>
+                                        <div class="horizontalProduct7Line2"></div>
+                                </div>
+                                <div class="contentPrice7">
+                                    <p class="price"><b>{{finalproduct7.price}}</b></p>
+                                </div>
+                            </div>
+                        </button>
+                    <button class="addToBasket7" id="seventhButton" type="submit" name="products" value="16"><img style="vertical-align:middle" src="{{ url_for('static', filename='images/other-images/add_to_basket_cart.png') }}"></button>
+                    </div>
+                    <div class="finalProduct" id="eighthProduct">
+                        <button class="contentButtons" type="submit" name="products" value="8">
+                            <div class="contentElement">
+                                <div class="contentImage">
+                                    <img class="productImage8" style="vertical-align:middle" src="{{ url_for('static', filename=finalproduct8.image) }}" alt="Product Image 8">
+                                    <div class="verticalLine8"></div>
+                                </div>
+                                <div class="contentHeader8">
+                                    <h6 class="title"><u>Item-Name: {{finalproduct8.title}}</u></h6>
+                                    <div class="horizontalProduct8Line1"></div>
+                                </div>
+                                <div class="contentDescription8">
+                                    <p class="environment"><b>Environmental Impact: </b>{{finalproduct8.environment}}</p>
+                                        <div class="horizontalProduct8Line2"></div>
+                                </div>
+                                <div class="contentPrice8">
+                                    <p class="price"><b>{{finalproduct8.price}}</b></p>
+                                </div>
+                            </div>
+                        </button>
+                    <button class="addToBasket8" id="eighthButton" type="submit" name="products" value="17"><img style="vertical-align:middle" src="{{ url_for('static', filename='images/other-images/add_to_basket_cart.png') }}"></button>
+                    </div>
+                    <div class="finalProduct" id="ninethProduct">
+                        <button class="contentButtons" type="submit" name="products" value="9">
+                            <div class="contentElement">
+                                <div class="contentImage">
+                                    <img class="productImage9" style="vertical-align:middle" src="{{ url_for('static', filename=finalproduct9.image) }}" alt="Product Image 9">
+                                    <div class="verticalLine9"></div>
+                                </div>
+                                <div class="contentHeader9">
+                                    <h6 class="title"><u>Item-Name: {{finalproduct9.title}}</u></h6>
+                                    <div class="horizontalProduct9Line1"></div>
+                                </div>
+                                <div class="contentDescription9">
+                                    <p class="environment"><b>Environmental Impact: </b>{{finalproduct9.environment}}</p>
+                                        <div class="horizontalProduct9Line2"></div>
+                                </div>
+                                <div class="contentPrice9">
+                                    <p class="price"><b>{{finalproduct9.price}}</b></p>
+                                </div>
+                            </div>
+                        </button>
+                    <button class="addToBasket9" id="ninethButton" type="submit" name="products" value="18"><img style="vertical-align:middle" src="{{ url_for('static', filename='images/other-images/add_to_basket_cart.png') }}"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="mainFooterBox">
+            <div class="footer">
+                <div class="footer-content">
+                    <div class="footer-top">
+                        <img class="thomasLogo" style="vertical-align:middle" src="{{ url_for('static', filename='images/peer-artwork/thomas_website_logo.png') }}" alt="Thomas Logo">
+                        <img class="joelLogo" style="vertical-align:middle" src="{{ url_for('static', filename='images/peer-artwork/joel_website_logo.png') }}" alt="Joel Logo">
+                    </div>
+                    <div class="footer-bottom">
+                        &copy; Larry's Lawnmowers ¦ Created By Joshua Noble
+                    </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
